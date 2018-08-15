@@ -1,0 +1,26 @@
+﻿@model VehicleTrackingSystem.DataModels.VehicleType
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Vehicle Type Details</h2>
+<hr />
+<div class="container">
+    
+    
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">
+                    Type Name
+                </label>
+                <input asp-for="TypeName" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TypeId" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-default">Cancel</a>
+</div>

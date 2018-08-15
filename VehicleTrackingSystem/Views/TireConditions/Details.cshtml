@@ -1,0 +1,25 @@
+﻿@model VehicleTrackingSystem.DataModels.TireCondition
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Tire Condition Details</h2>
+    <hr />
+    
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label">
+                        Tire Condition
+                    </label>
+                    <input asp-for="Condition" class="form-control" readonly="readonly" />
+                </div>
+            </div>
+                        
+         </div>
+                <div>
+                    <a asp-action="Edit" asp-route-id="@Model.ConditionId" class="btn btn-primary">Edit</a>
+                    <a asp-action="Index" class="btn btn-default">Cancel</a>
+                </div>

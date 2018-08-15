@@ -1,0 +1,91 @@
+﻿@model VehicleTrackingSystem.DataModels.Vehicle
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Vehicle</h2>
+<hr />
+<div class="container">
+    <form asp-action="Edit">
+        <div class="row">
+            <div class="col-md-6">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Vid" />
+                <div class="form-group">
+                    <label asp-for="TypeId" class="control-label">Type Name</label>
+                    <select asp-for="TypeId" class="form-control" asp-items="ViewBag.TypeId"></select>
+                    <span asp-validation-for="TypeId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Idnumber" class="control-label">VIN/HIN</label>
+                    <input asp-for="Idnumber" class="form-control" />
+                    <span asp-validation-for="Idnumber" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="TireQty" class="control-label">Tire Quantity</label>
+                    <input asp-for="TireQty" class="form-control" />
+                    <span asp-validation-for="TireQty" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ConditionId" class="control-label">Tire Condition</label>
+                    <select asp-for="ConditionId" class="form-control" asp-items="ViewBag.ConditionId"><option></option></select>
+                    <span asp-validation-for="ConditionId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="FuelLevel" class="control-label">Fuel Level (%)</label>
+                    <input asp-for="FuelLevel" class="form-control" />
+                    <span asp-validation-for="FuelLevel" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-default">Cancel</a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(function () {
+            var $tireQty = $("#TireQty");
+            var $conditionId = $("#ConditionId");
+            $tireQty.change(function () {
+                if ($tireQty.val() == 0) {
+                    $conditionId.prop("disabled", true);
+                    $conditionId.val("");
+                }
+                else { $conditionId.prop("disabled", false); }
+            });
+            $tireQty.trigger("change");
+        });
+    </script>
+}

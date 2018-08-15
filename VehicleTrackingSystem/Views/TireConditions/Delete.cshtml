@@ -1,0 +1,35 @@
+﻿@model VehicleTrackingSystem.DataModels.TireCondition
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete Tire Condition</h2>
+
+<hr />
+<div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">
+                    Tire Condition
+                </label>
+                <input asp-for="Condition" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+
+    
+    
+
+    <div class="alert alert-danger">
+        <strong>Are you sure you want to delete this condition?</strong>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ConditionId" />
+        <input type="submit" value="Delete" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-default">Cancel</a>
+        <span asp-validation-for="ConditionId" class="text-danger"></span>
+    </form>
+</div>

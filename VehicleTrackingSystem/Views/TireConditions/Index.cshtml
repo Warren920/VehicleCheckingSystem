@@ -1,0 +1,41 @@
+﻿@model IEnumerable<VehicleTrackingSystem.DataModels.TireCondition>
+
+@{
+    ViewData["Title"] = "Tires";
+}
+
+<h2>Tire Conditions</h2>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tire Condition
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Condition)
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a asp-action="Edit" asp-route-id="@item.ConditionId" class="btn btn-primary">Edit</a>
+                        @*<a asp-action="Details" asp-route-id="@item.ConditionId" class="btn btn-info">Details</a>*@
+                        <a asp-action="Delete" asp-route-id="@item.ConditionId" class="btn btn-danger">Delete</a>
+                    </div>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-md-4">
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </div>
+</div>

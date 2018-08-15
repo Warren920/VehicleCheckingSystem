@@ -1,0 +1,42 @@
+﻿@model IEnumerable<VehicleTrackingSystem.DataModels.VehicleType>
+
+@{
+    ViewData["Title"] = "Types";
+}
+
+<h2>Vehicle Types</h2>
+
+<hr />
+    
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Vehicle Type
+                @*@Html.DisplayNameFor(model => model.TypeName)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeName)
+            </td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a asp-action="Edit" asp-route-id="@item.TypeId" class="btn btn-primary">Edit</a> 
+                    
+                    <a asp-action="Delete" asp-route-id="@item.TypeId" class="btn btn-danger">Delete</a>
+                    </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-md-4">
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </div>
+</div>

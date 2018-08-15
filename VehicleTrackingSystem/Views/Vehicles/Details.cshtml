@@ -1,0 +1,67 @@
+﻿@model VehicleTrackingSystem.DataModels.Vehicle
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Vehicle Details</h2>
+<hr />
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">
+                    Vehicle Type
+                </label>
+                <input asp-for="VehicleType.TypeName" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">
+                    VIN/HIN
+                </label>
+                <input asp-for="Idnumber" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">
+                    Tire Quanitity
+                </label>
+                <input asp-for="TireQty" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">
+                    Tire Condition
+                </label>
+                <input asp-for="TireCondition.Condition" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">
+                    Fuel Level (%)
+                </label>
+                <input asp-for="FuelLevel" class="form-control" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <a asp-action="Edit" asp-route-id="@Model.Vid" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+    
+
+</div>
+

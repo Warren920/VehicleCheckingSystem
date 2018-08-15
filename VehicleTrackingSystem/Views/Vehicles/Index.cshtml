@@ -1,0 +1,112 @@
+﻿@model IEnumerable<VehicleTrackingSystem.DataModels.Vehicle>
+
+@{
+    ViewData["Title"] = "Vehicles";
+}
+
+<h2>Vehicle List</h2>
+<hr />
+@*<div class="container1">
+    <div class="row">
+        <div class="col-md-2">Vehicle Type</div>
+        <div class="col-md-2">VIN/HIN</div>
+        <div class="col-md-2">Tire Quantity</div>
+        <div class="col-md-2">Tire Condition</div>
+        <div class="col-md-2">Fuel Level</div>
+        <div class="col-md-2"></div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-2">
+                <a asp-action="Details" asp-route-id="@item.Vid">
+                    @item.VehicleType.TypeName
+                </a>
+            </div>
+            <div class="col-md-2">
+                <a asp-action="Details" asp-route-id="@item.Vid">
+                    @item.Idnumber
+                </a>
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => item.TireQty)
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => item.TireCondition.Condition)
+            </div>
+            <div class="col-md-2">
+                @Html.DisplayFor(modelItem => item.FuelLevel)
+            </div>
+            <div class="col-md-2">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <a asp-action="Edit" asp-route-id="@item.Vid" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Vid" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="vehicle-type hidden-xs">
+                <label class="control-label">Vehicle Type</label>
+            </th>
+            <th class="vin">
+                <label class="control-label">VIN/HIN</label>
+            </th>
+            <th class="hidden-xs">
+                <label class="control-label">Tire Quantity</label>
+            </th>
+            <th class="hidden-xs">
+                <label class="control-label">Tire Condition</label>
+            </th>
+            <th class="hidden-xs">
+                <label class="control-label">Fuel Level</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="vehicle-type hidden-xs">
+                    <a asp-action="Details" asp-route-id="@item.Vid">
+                        @item.VehicleType.TypeName
+                    </a>
+                </td>
+                <td class="vin">
+                    <a asp-action="Details" asp-route-id="@item.Vid">
+                        @item.Idnumber
+                    </a>
+                </td>
+                <td class="hidden-xs">
+                    @Html.DisplayFor(modelItem => item.TireQty)
+                </td>
+                <td class="hidden-xs">
+                    @Html.DisplayFor(modelItem => item.TireCondition.Condition)
+                </td>
+
+                <td class="hidden-xs">
+                    @Html.DisplayFor(modelItem => item.FuelLevel)
+                </td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a asp-action="Edit" asp-route-id="@item.Vid" class="btn btn-primary">Edit</a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Vid" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </div>
+</div>
+
